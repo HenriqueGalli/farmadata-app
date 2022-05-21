@@ -19,27 +19,28 @@ export default function Table({ columns, data }) {
     - react-table doesn't have UI, it's headless. We just need to put the react-table props from the Hooks, and it will do its magic automatically
   */
   return (
-    <table class="border-collapse border border-slate-400" {...getTableProps()} >
-      <thead class="border border-slate-400">
+    <table className="border-collapse border border-slate-400" {...getTableProps()} >
+      <thead className="border border-slate-400">
         {headerGroups.map(headerGroup => (
-          <tr class="border border-slate-400" {...headerGroup.getHeaderGroupProps()}>
+          <tr className="border border-slate-400" {...headerGroup.getHeaderGroupProps()}>
             {headerGroup.headers.map(column => (
-              <th class="border border-slate-400" {...column.getHeaderProps()}>{column.render("Header")}</th>
+              <th className="border border-slate-400" {...column.getHeaderProps()}>{column.render("Header")}</th>
             ))}
           </tr>
         ))}
       </thead>
-      <tbody class="border border-slate-400"{...getTableBodyProps()}>
+      <tbody className="border border-slate-400"{...getTableBodyProps()}>
         {rows.map((row, i) => {
           prepareRow(row);
           return (
-            <tr class="border border-slate-400"{...row.getRowProps()}>
+            <tr className="border border-slate-400"{...row.getRowProps()}>
               {row.cells.map(cell => {
                 if(cell.column.id == "Id"){
-                  return <td class="border border-slate-400" {...cell.getCellProps()} onClick = "excludeMed()" >Botão</td>;
+                  return <td className="border border-slate-400" {...cell.getCellProps()} ><button type="button" class="btn btn-danger">Secondary</button>
+                  </td>;
                 }
                 else{
-                  return <td class="border border-slate-400" {...cell.getCellProps()}>{cell.render("Cell")}</td>;
+                  return <td className="border border-slate-400" {...cell.getCellProps()}>{cell.render("Cell")}</td>;
                 }
               })}
               
@@ -52,5 +53,5 @@ export default function Table({ columns, data }) {
 }
 
 function excludeMed(id){
-
+  console.log("teste");
 }
