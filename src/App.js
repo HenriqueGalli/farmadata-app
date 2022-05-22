@@ -1,61 +1,27 @@
 import React, { useState, useEffect, useMemo } from "react";
-import Table from "./Table";
-import ReactForm from "./Form";
-import axios from 'axios';
+import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
+import Form from "./Form";
+import Estoque from "./Estoque";
+import ListarMedicamento from "./ListarMedicamento";
 
 function App() {
 
-  const [data, setData] = useState([]);
-  const [state, setState] = useState('table-medicamento')
-  useEffect(() => {
-    (async () => {
-      const result = await axios("http://localhost:8080/api/medicamento");
-      setData(result.data);
-    })();
-  }, []);
-
-  const columns = useMemo(
-    () => [
-      {
-        Header: "Medicamentos",
-        // First group columns
-        columns: [
-          {
-            Header: "Nome Comercial",
-            accessor: "NomeComercial"
-          },
-          {
-            Header: "Fabricante",
-            accessor: "Fabricante"
-          },
-          {
-            Header: "Nome Generico",
-            accessor: "NomeGenerico"
-          },
-          {
-            Header: "Bula Remédio",
-            accessor: "BulaRemedio"
-          },
-          {
-            Header: "Valor",
-            accessor: "Valor"
-          },
-          {
-            Header: "Ação",
-            accessor: "Id"
-          }
-
-        ]
-      },
-    ],
-    []
-  );
-
   return (
-    <div className="App">
-      {state === 'add-medicamento' && <ReactForm    />}
-      {state === 'table-medicamento' &&  <Table columns={columns} data={data}/>}
-    </div> 
+    <Router>
+      <div className="App">
+        <h1>Home</h1>
+        <Link to="/">Home</Link>
+        <Link to="/cadastrarMedicamento">cadastrar</Link>
+        <Link to="/listarMedicamento">listar</Link>
+        <Link to="/estoque">Estoque</Link>
+
+        <Routes>
+          <Route path="/cadastrarMedicamento" exact element={<Form />}/>
+          <Route path="/listarMedicamento" exact element={<ListarMedicamento />} />
+          <Route path="/estoque" exact element={<Estoque />} />
+        </Routes>
+      </div>
+    </Router>
   );
 
 }
