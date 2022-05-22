@@ -1,3 +1,4 @@
+import axios from "axios";
 import React from "react";
 import ReactDOM from 'react-dom';
 import formcss from './Form.css'
@@ -20,10 +21,11 @@ class ReactForm extends React.Component {
         super(props)
 
         this.state = {
-            name: '',
-            email: '',
-            subject: '',
-            message: ''
+            nomeComercial: props.NomeComercial,
+            fabricante: '',
+            nomeGenerico: '',
+            bulaRemedio: '',
+            valor: ''
         }
 
         this.handleChange = this.handleChange.bind(this)
@@ -43,45 +45,40 @@ class ReactForm extends React.Component {
         e.preventDefault()
 
         let formData = {
-            formSender: this.state.name,
-            formEmail: this.state.email,
-            formSubject: this.state.subject,
-            formMessage: this.state.message
+            NomeComercial: this.state.nomeComercial,
+            Fabricante: this.state.fabricante,
+            NomeGenerico: this.state.nomeGenerico,
+            BulaRemedio: this.state.bulaRemedio,
+            Valor: this.state.valor
         }
 
-        if (formData.formSender.length < 1 || formData.formEmail.length < 1 || formData.formSubject.length < 1 || formData.formMessage.length < 1) {
+        if (formData.NomeComercial.length < 1 || formData.Fabricante.length < 1 || formData.NomeGenerico.length < 1 || formData.Valor.length < 1) {
             return false
         }
+        axios({
+            method: 'post',
+            url: 'http://localhost:8080/api/medicamento',
+            data: {
+                "NomeComercial": formData.NomeComercial,
+                "Fabricante": formData.Fabricante,
+                "NomeGenerico": formData.NomeGenerico,
+                "BulaRemedio": formData.BulaRemedio,
+                "Valor": formData.Valor
+            }
+        }).then((response) => {
+            console.log(response);
+          }, (error) => {
+            console.log(error);
+          });
 
-        /*         $.ajax({
-                    url: '/some/url',
-                    dataType: 'json',
-                    type: 'POST',
-                    data: formData,
-                    success: function (data) {
-                        if (confirm('Thank you for your message. Can I erase the form?')) {
-                            this.setState({
-                                firstName: '',
-                                lastName: '',
-                                email: '',
-                                subject: '',
-                                message: ''
-                            })
-                        }
-                    },
-                    error: function (xhr, status, err) {
-                        console.error(status, err.toString())
-                        alert('There was some problem with sending your message.')
-                    }
-                }) */
 
-        this.setState({
+        /* this.setState({
             firstName: '',
             lastName: '',
             email: '',
             subject: '',
             message: ''
-        })
+        }) */
     }
 
     render() {
@@ -91,27 +88,33 @@ class ReactForm extends React.Component {
                 <form className='react-form' onSubmit={this.handleSubmit}>
                     <h1>Cadastrar novo medicamento</h1>
                     <fieldset className='form-group'>
-                        <ReactFormLabel htmlFor='formName' title='Full Name:' />
+                        <ReactFormLabel htmlFor='nomeComercial' title='Nome Comercial:' />
 
-                        <input id='formName' className='form-input' name='name' type='text' required onChange={this.handleChange} value={this.state.name} />
+                        <input id='nomeComercial' className='form-input' name='nomeComercial' onChange={this.handleChange} type='text' required defaultValue={this.state.nomeComercial} />
                     </fieldset>
 
                     <fieldset className='form-group'>
-                        < ReactFormLabel htmlFor='formEmail' title='Email:' />
+                        < ReactFormLabel htmlFor='fabricante' title='Fabricante:' />
 
-                        <input id='formEmail' className='form-input' name='email' type='email' required onChange={this.handleChange} value={this.state.email} />
+                        <input id='fabricante' className='form-input' name='fabricante' type='text' required onChange={this.handleChange} defaultValue={this.state.fabricante} />
                     </fieldset>
 
                     <fieldset className='form-group'>
-                        < ReactFormLabel htmlFor='formSubject' title='Subject:' />
+                        < ReactFormLabel htmlFor='nomeGenerico' title='Nome Genérico:' />
 
-                        <input id='formSubject' className='form-input' name='subject' type='text' required onChange={this.handleChange} value={this.state.subject} />
+                        <input id='nomeGenerico' className='form-input' name='nomeGenerico' type='text' required onChange={this.handleChange} defaultValue={this.state.nomeGenerico} />
                     </fieldset>
 
                     <fieldset className='form-group'>
-                        < ReactFormLabel htmlFor='formMessage' title='Message:' />
+                        < ReactFormLabel htmlFor='bulaRemedio' title='Bula remédio:' />
 
-                        <textarea id='formMessage' className='form-textarea' name='message' required onChange={this.handleChange}></textarea>
+                        <textarea id='bulaRemedio' className='form-textarea' name='bulaRemedio' onChange={this.handleChange} defaultValue={this.state.bulaRemedio}></textarea>
+                    </fieldset>
+
+                    <fieldset className='form-group'>
+                        < ReactFormLabel htmlFor='valor' title='Valor:' />
+
+                        <input id='valor' className='form-input' name='valor' type="number" step="0.01" min="0" required onChange={this.handleChange} defaultValue={this.state.valor}></input>
                     </fieldset>
 
                     <div className='form-group'>
