@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useMemo } from "react";
 import Table from "./Table";
+import ReactForm from "./Form";
 import axios from 'axios';
 
 function App() {
 
   const [data, setData] = useState([]);
+  const [state, setState] = useState('table-medicamento')
   useEffect(() => {
     (async () => {
       const result = await axios("http://localhost:8080/api/medicamento");
@@ -25,15 +27,15 @@ function App() {
           {
             Header: "Fabricante",
             accessor: "Fabricante"
-          },  
+          },
           {
             Header: "Nome Generico",
             accessor: "NomeGenerico"
-          },  
+          },
           {
             Header: "Bula Remédio",
             accessor: "BulaRemedio"
-          },  
+          },
           {
             Header: "Valor",
             accessor: "Valor"
@@ -51,8 +53,9 @@ function App() {
 
   return (
     <div className="App">
-      <Table columns={columns} data={data} />
-    </div>
+      {state === 'add-medicamento' && <ReactForm    />}
+      {state === 'table-medicamento' &&  <Table columns={columns} data={data}/>}
+    </div> 
   );
 
 }
