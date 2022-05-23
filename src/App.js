@@ -10,10 +10,12 @@ function App() {
     <Router>
       <div className="App">
         <h1>Home</h1>
-        <Link to="/">Home</Link>
-        <Link to="/cadastrarMedicamento">cadastrar</Link>
-        <Link to="/listarMedicamento">listarMedicamento</Link>
-        <Link to="/listarEstoque">Estoque</Link>
+        <ul>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/cadastrarMedicamento">cadastrar</Link></li>
+          <li><Link to="/listarMedicamento">listarMedicamento</Link></li>
+          <li><Link to="/listarEstoque">Estoque</Link></li>
+        </ul>
 
         <Routes>
           <Route path="/cadastrarMedicamento" exact element={<Form  />}/>
