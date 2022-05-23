@@ -1,8 +1,5 @@
 import axios from "axios";
 import React from "react";
-import ReactDOM from 'react-dom';
-import formcss from './Form.css'
-const reactFormContainer = document.querySelector('.react-form-container')
 
 class ReactFormLabel extends React.Component {
     constructor(props) {
@@ -27,11 +24,10 @@ class ReactForm extends React.Component {
             bulaRemedio: '',
             valor: ''
         }
-
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
     }
-
+    
     handleChange = (e) => {
         let newState = {}
 
@@ -67,25 +63,21 @@ class ReactForm extends React.Component {
             }
         }).then((response) => {
             console.log(response);
-          }, (error) => {
+            alert('Medicamento Cadastrado com sucesso!')
+            window.location.reload()
+        }, (error) => {
             console.log(error);
-          });
-
-
-        /* this.setState({
-            firstName: '',
-            lastName: '',
-            email: '',
-            subject: '',
-            message: ''
-        }) */
+            alert('Erro no cadastro do medicamento!')
+        });
+    
     }
 
     render() {
+        
         return (
             <div>
                 <button>Listagem Medicamentos</button>
-                <form className='react-form' onSubmit={this.handleSubmit}>
+                <form className='react-form' onSubmit={this.handleSubmit} afterSubmit={() => this.props.navigation.goBack()}>
                     <h1>Cadastrar novo medicamento</h1>
                     <fieldset className='form-group'>
                         <ReactFormLabel htmlFor='nomeComercial' title='Nome Comercial:' />
@@ -127,4 +119,4 @@ class ReactForm extends React.Component {
 }
 
 
-export default ReactForm 
+export default ReactForm
