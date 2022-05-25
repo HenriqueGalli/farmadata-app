@@ -3,19 +3,20 @@ import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 import Form from "./Form";
 import ListarEstoque from "./ListarEstoque";
 import ListarMedicamento from "./ListarMedicamento";
+import './App.css';
 
 function App() {
 
   return (
     <Router>
       <div className="App">
-        <h1>Home</h1>
-        <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/cadastrarMedicamento">cadastrar</Link></li>
-          <li><Link to="/listarMedicamento">listarMedicamento</Link></li>
-          <li><Link to="/listarEstoque">Estoque</Link></li>
-        </ul>
+        <div className="Menu">
+        <Link className="MenuLink" to="/">Home</Link>
+          <Link className="MenuLink"to="/cadastrarMedicamento">cadastrar</Link>
+          <Link className="MenuLink" to="/listarMedicamento">listarMedicamento</Link>
+          <Link className="MenuLink" to="/listarEstoque">Estoque</Link>
+        </div>
+
 
         <Routes>
           <Route path="/cadastrarMedicamento" exact element={<Form  />}/>

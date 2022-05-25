@@ -1,5 +1,7 @@
 import axios from "axios";
 import React from "react";
+import './Form.css';
+
 
 class ReactFormLabel extends React.Component {
     constructor(props) {
@@ -35,7 +37,7 @@ class ReactForm extends React.Component {
 
         this.setState(newState)
     }
-
+n
 
     handleSubmit = (e, message) => {
         e.preventDefault()
@@ -75,10 +77,11 @@ class ReactForm extends React.Component {
     render() {
         
         return (
-            <div>
-                <button>Listagem Medicamentos</button>
+            <div id="formCadastrar">
                 <form className='react-form' onSubmit={this.handleSubmit} afterSubmit={() => this.props.navigation.goBack()}>
-                    <h1>Cadastrar novo medicamento</h1>
+                   <div className="header-form">
+                        <h1>Cadastrar novo medicamento</h1>
+                   </div>
                     <fieldset className='form-group'>
                         <ReactFormLabel htmlFor='nomeComercial' title='Nome Comercial:' />
 
