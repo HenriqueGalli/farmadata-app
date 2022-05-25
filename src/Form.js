@@ -29,7 +29,7 @@ class ReactForm extends React.Component {
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
     }
-    
+
     handleChange = (e) => {
         let newState = {}
 
@@ -37,7 +37,7 @@ class ReactForm extends React.Component {
 
         this.setState(newState)
     }
-n
+    n
 
     handleSubmit = (e, message) => {
         e.preventDefault()
@@ -71,49 +71,51 @@ n
             console.log(error);
             alert('Erro no cadastro do medicamento!')
         });
-    
+
     }
 
     render() {
-        
+
         return (
             <div id="formCadastrar">
                 <form className='react-form' onSubmit={this.handleSubmit} afterSubmit={() => this.props.navigation.goBack()}>
-                   <div className="header-form">
+                    <div className="header-form">
                         <h1>Cadastrar novo medicamento</h1>
-                   </div>
-                    <fieldset className='form-group'>
-                        <ReactFormLabel htmlFor='nomeComercial' title='Nome Comercial:' />
+                    </div>
+                    <div className="content-form">
+                        <fieldset className='form-group'>
+                            <ReactFormLabel htmlFor='nomeComercial' title='Nome Comercial:' />
 
-                        <input id='nomeComercial' className='form-input' name='nomeComercial' onChange={this.handleChange} type='text' required defaultValue={this.state.nomeComercial} />
-                    </fieldset>
+                            <input id='nomeComercial' className='form-input' name='nomeComercial' onChange={this.handleChange} type='text' required defaultValue={this.state.nomeComercial} />
+                        </fieldset>
 
-                    <fieldset className='form-group'>
-                        < ReactFormLabel htmlFor='fabricante' title='Fabricante:' />
+                        <fieldset className='form-group'>
+                            < ReactFormLabel htmlFor='fabricante' title='Fabricante:' />
 
-                        <input id='fabricante' className='form-input' name='fabricante' type='text' required onChange={this.handleChange} defaultValue={this.state.fabricante} />
-                    </fieldset>
+                            <input id='fabricante' className='form-input' name='fabricante' type='text' required onChange={this.handleChange} defaultValue={this.state.fabricante} />
+                        </fieldset>
 
-                    <fieldset className='form-group'>
-                        < ReactFormLabel htmlFor='nomeGenerico' title='Nome Genérico:' />
+                        <fieldset className='form-group'>
+                            < ReactFormLabel htmlFor='nomeGenerico' title='Nome Genérico:' />
 
-                        <input id='nomeGenerico' className='form-input' name='nomeGenerico' type='text' required onChange={this.handleChange} defaultValue={this.state.nomeGenerico} />
-                    </fieldset>
+                            <input id='nomeGenerico' className='form-input' name='nomeGenerico' type='text' required onChange={this.handleChange} defaultValue={this.state.nomeGenerico} />
+                        </fieldset>
 
-                    <fieldset className='form-group'>
-                        < ReactFormLabel htmlFor='bulaRemedio' title='Bula remédio:' />
+                        <fieldset className='form-group'>
+                            < ReactFormLabel htmlFor='bulaRemedio' title='Bula remédio:' />
 
-                        <textarea id='bulaRemedio' className='form-textarea' name='bulaRemedio' onChange={this.handleChange} defaultValue={this.state.bulaRemedio}></textarea>
-                    </fieldset>
+                            <textarea id='bulaRemedio' className='form-textarea' name='bulaRemedio' onChange={this.handleChange} defaultValue={this.state.bulaRemedio}></textarea>
+                        </fieldset>
 
-                    <fieldset className='form-group'>
-                        < ReactFormLabel htmlFor='valor' title='Valor:' />
+                        <fieldset className='form-group'>
+                            < ReactFormLabel htmlFor='valor' title='Valor:' />
 
-                        <input id='valor' className='form-input' name='valor' type="number" step="0.01" min="0" required onChange={this.handleChange} defaultValue={this.state.valor}></input>
-                    </fieldset>
+                            <input id='valor' className='form-input' name='valor' type="number" step="0.01" min="0" required onChange={this.handleChange} defaultValue={this.state.valor}></input>
+                        </fieldset>
 
-                    <div className='form-group'>
-                        <input id='formButton' className='btn' type='submit' placeholder='Send message' />
+                        <div className='form-group'>
+                            <input id='formButton' className='btn' type='submit' placeholder='Send message' />
+                        </div>
                     </div>
                 </form>
             </div>

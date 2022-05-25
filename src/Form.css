@@ -84,13 +84,14 @@ textarea {
 }
 
 #formCadastrar{
+  border: 1px solid transparent;
+  border-radius: 4em;
   margin-left: 10%;
   margin-right: 10%;
-  margin-bottom: 1em;
+  margin-bottom: 1.5em;
 }
 
-
-.react-form{
+.content-form{
   padding: 1rem;
 }
 

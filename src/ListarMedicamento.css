@@ -1,0 +1,28 @@
+.ListarMedicamento{
+  display: flex;
+  display: flex;
+  flex-direction: row;
+  justify-content:center;
+}
+
+.headerTable{
+  text-align: center;
+}
+
+.contentTable{
+  text-align: center;
+  width: 80%;
+}
+
+.icon{
+  text-align: center;
+}
+
+a{
+  text-decoration: none;
+  color: #000;
+}
+
+.contentTableUnic{
+  width: 8em;
+}

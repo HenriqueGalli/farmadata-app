@@ -6,8 +6,17 @@
 }
 
 .MenuLink{
+  border: 1px solid transparent;
+  border-radius: 0.3em;
+  padding: 0.3em;
   text-decoration: none;
   margin-left: 2em;
   margin-top: 0.3em;
   color: #13d965;
+}
+
+.MenuLink:hover{
+  border: 1px solid #fff;
+  background-color: #91e6b4;
+  color: #fff;
 }

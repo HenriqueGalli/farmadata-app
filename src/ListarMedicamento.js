@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from "react";
 import Table from "./Table";
 import axios from 'axios';
+import "./ListarMedicamento.css"
 
 function ListarMedicamento() {
 
@@ -31,7 +32,7 @@ function ListarMedicamento() {
             accessor: "NomeGenerico"
           },  
           {
-            Header: "Bula Remédio",
+            Header: "Bula",
             accessor: "BulaRemedio"
           },  
           {
