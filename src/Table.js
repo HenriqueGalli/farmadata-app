@@ -26,53 +26,51 @@ export default function Table({ columns, data, type }) {
 
   const tableType = type;
 
-  const state = {
-    id: 0,
-    nomeComercial: '',
-    quantidade: 0
-  }
+  // const state = {
+  //   id: 0,
+  //   nomeComercial: '',
+  //   quantidade: 0,
+  //   showModal: true
+  // }
 
   const [show, setShow] = useState(false);
 
+  //estoque
+  const [idEstoque, setIdEstoque] = useState(0);
+  const [nomeEstoque, setNomeEstoque] = useState('');
+  const [quantidadeEstoque, setQuantidadeEstoque] = useState(0);
+  
+  
   function handleClose() {
     setShow(false);
   }
 
-  function editEstoque(id, quantidade) {
-    let estoque = [id, quantidade];
-    console.log('[editEstoque] estoque => ', estoque);
-  
-    handleClose(true);
-  
-    
-    // axios.put('http://localhost:8080/api/estoque', {
-    //     "IdMedicamento": id,
-    //     "Quantidade": quantidade
-    //   }
-    // );
+  //Métodos estoque
+  function editEstoque() {
+    axios.put('http://localhost:8080/api/estoque', {
+          "IdMedicamento": idEstoque,
+          "Quantidade": quantidadeEstoque
+        }
+      );
       
-    // window.location.reload()
-  
-  
-    //editEstoque(cell.row.original.Id, cell.row.original.Quantidade)
+    window.location.reload()
+      
+    handleClose(true);
   }
 
   function setEstoque(id, quantidade, nomeComercial){
-    let estoque = [id, quantidade, nomeComercial];
-    console.log('[setEstoque] estoque => ', estoque);
-
-    state.id = id;
-    state.quantidade = quantidade;
-    state.nomeComercial = nomeComercial;
-
-    console.log('state => ', state);
-
+    setIdEstoque(id);
+    setNomeEstoque(nomeComercial);
+    setQuantidadeEstoque(quantidade);
+    
     setShow(true);
   }
   
   function atualizaQuantidade(quantidade) {
-    state.quantidade = quantidade;
+    setQuantidadeEstoque(quantidade);
   }
+
+  //Métodos medicamento
 
 
 
@@ -82,33 +80,29 @@ export default function Table({ columns, data, type }) {
   */
   return (
     <div>
-      <React.Fragment>
-        <Container>
-          <Modal show={show}>
-            <Modal.Header>
-              <Modal.Title>Titulo</Modal.Title>
-            </Modal.Header>
-
-            <Modal.Body>
-              <Form>
-                <Form.Group className="mb-3">
-                  <Form.Label>Nome Comercial</Form.Label>
-                  <Form.Control type="text" placeholder={state.nomeComercial} disabled />
-                </Form.Group>
-                <Form.Group className="mb-3">
-                  <Form.Label>Quantidade</Form.Label>
-                  <Form.Control type="number" placeholder={state.quantidade} onChange={ e => atualizaQuantidade(e.target.value) } />
-                </Form.Group>
-              </Form>
-            </Modal.Body>
-
-            <Modal.Footer>
-              <Button variante="danger" onClick={ handleClose }>Close</Button>
-              <Button variant="primary" type="submit" onClick={() => editEstoque(state.id, state.quantidade)}>Salvar</Button>
-            </Modal.Footer>
-          </Modal>
-        </Container>
-      </React.Fragment>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header>
+          <Modal.Title>Titulo</Modal.Title>
+        </Modal.Header>
+        
+        <Modal.Body>
+          <Form>
+            <Form.Group className="mb-3">
+              <Form.Label>Nome Comercial</Form.Label>
+              <Form.Control type="text" placeholder={nomeEstoque} disabled />
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>Quantidade</Form.Label>
+              <Form.Control type="number" placeholder={quantidadeEstoque} onChange={ e => atualizaQuantidade(e.target.value) } />
+            </Form.Group>
+          </Form>
+        </Modal.Body>
+        
+        <Modal.Footer>
+          <Button variante="danger" onClick={ handleClose }>Close</Button>
+          <Button variant="primary" type="submit" onClick={() => editEstoque()}>Salvar</Button>
+        </Modal.Footer>
+      </Modal>
                         
       <table className="border-collapse border border-slate-400" {...getTableProps()} >
         <thead className="border border-slate-400">
