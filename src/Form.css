@@ -90,6 +90,10 @@ textarea {
   padding: 1rem;
 }
 
+.tituloCadastro{
+  color: #50ad77;
+}
+
 #formButton{
   background-color: #38ad69;
   display: inline-block;

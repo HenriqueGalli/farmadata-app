@@ -80,7 +80,7 @@ class ReactForm extends React.Component {
             <div id="formCadastrar">
                 <form className='react-form' onSubmit={this.handleSubmit} afterSubmit={() => this.props.navigation.goBack()}>
                     <div className="header-form">
-                        <h1>Cadastrar novo medicamento</h1>
+                        <h1 className="tituloCadastro">Cadastrar novo medicamento</h1>
                     </div>
                     <div className="content-form">
                         <fieldset className='form-group'>
