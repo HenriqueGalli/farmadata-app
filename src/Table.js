@@ -141,23 +141,23 @@ export default function Table({ columns, data, type }) {
           <Form>
             <Form.Group className="mb-3">
               <Form.Label>Nome Comercial</Form.Label>
-              <Form.Control type="text" placeholder={nomeComercialMedicamento}  />
+              <Form.Control type="text" defaultValue={nomeComercialMedicamento} onChange={ e => setNomeComercialMedicamento(e.target.value) }  />
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>Nome Genérico</Form.Label>
-              <Form.Control type="text" placeholder={nomeGenericoMedicamento}  />
+              <Form.Control type="text" defaultValue={nomeGenericoMedicamento} onChange={ e => setNomeGenericoMedicamento(e.target.value) }/>
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>Fabricante</Form.Label>
-              <Form.Control type="text" placeholder={fabricante}  />
+              <Form.Control type="text" defaultValue={fabricante} onChange={ e => setFabricante(e.target.value) } />
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>Bula</Form.Label>
-              <Form.Control type="text" placeholder={bula}  />
+              <Form.Control type="text" defaultValue={bula} onChange={ e => setBula(e.target.value) }  />
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>Valor</Form.Label>
-              <Form.Control type="number" placeholder={valor} onChange={ e => atualizaValor(e.target.value) } />
+              <Form.Control type="number" defaultValue={valor} onChange={ e => atualizaValor(e.target.value) } />
             </Form.Group>
           </Form>
         </Modal.Body>
