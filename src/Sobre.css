@@ -1,0 +1,29 @@
+.sobre{
+    display: flex;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+}
+
+.divNomes{
+    padding-top: 1em;
+    margin-top: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    background-color: #fff;
+    width: 30%;
+    border: 1px solid transparent;
+    border-radius: 1em;
+}
+
+.Nomes{
+    color: #50ad77;
+    margin-bottom: 1em;
+}
+
+
+p{
+    padding-top: 2em;
+    text-align: center;
+}

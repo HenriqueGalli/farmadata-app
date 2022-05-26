@@ -4,6 +4,7 @@ import Form from "./Form";
 import ListarEstoque from "./ListarEstoque";
 import ListarMedicamento from "./ListarMedicamento";
 import './App.css';
+import Sobre from "./Sobre";
 
 function App() {
 
@@ -11,16 +12,18 @@ function App() {
     <Router>
       <div className="App">
         <div className="Menu">
-        <Link className="MenuLink" to="/">Home</Link>
           <Link className="MenuLink"to="/cadastrarMedicamento">Cadastrar</Link>
-          <Link className="MenuLink" to="/listarMedicamento">Listar Medicamento</Link>
+          <Link className="MenuLink" to="/">Listar Medicamento</Link>
           <Link className="MenuLink" to="/listarEstoque">Estoque</Link>
+          <Link className="MenuLink" to="/sobre">Sobre</Link>
+
         </div>
 
 
         <Routes>
+          <Route path="/sobre" exact element={<Sobre  />}/>
           <Route path="/cadastrarMedicamento" exact element={<Form  />}/>
-          <Route path="/listarMedicamento" exact element={<ListarMedicamento />} />
+          <Route path="/" exact element={<ListarMedicamento />} />
           <Route path="/listarEstoque" exact element={<ListarEstoque />} />
         </Routes>
       </div>
