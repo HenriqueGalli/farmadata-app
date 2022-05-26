@@ -51,7 +51,7 @@ function ListarMedicamento() {
   );
 
   return (
-    <div className="ListarMedicamento">
+    <div className="ListarTabela">
       <Table columns={columns} data={data} type={"medicamento"}/>
     </div>
   );

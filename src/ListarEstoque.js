@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from "react";
 import Table from "./Table";
 import axios from 'axios';
+import "./ListarMedicamento.css"
 
 function ListarEstoque() {
 
@@ -38,7 +39,7 @@ function ListarEstoque() {
   );
 
   return (
-    <div className="ListarEstoque">
+    <div className="ListarTabela">
       <Table columns={columns} data={data} type={"estoque"}/>
     </div>
   );

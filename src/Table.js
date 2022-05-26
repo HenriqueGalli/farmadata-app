@@ -181,7 +181,7 @@ export default function Table({ columns, data, type }) {
             </tr>
           ))}
         </thead>
-        <tbody className="border border-slate-400"{...getTableBodyProps()}>
+        <tbody className="border border-slate-400" {...getTableBodyProps()}>
           {rows.map((row, i) => {
             prepareRow(row);
             if (tableType === "medicamento") {
@@ -223,7 +223,7 @@ export default function Table({ columns, data, type }) {
               );
             } else if (tableType === "estoque") {
               return (
-                <tr className="border border-slate-400"{...row.getRowProps()}>
+                <tr className="border border-slate-400 contentTable"{...row.getRowProps()}>
                   {row.cells.map(cell => {
                     if (cell.column.id === "Id") {
                       return <td className="border border-slate-400" {...cell.getCellProps()} >
