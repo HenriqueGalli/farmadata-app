@@ -2,21 +2,34 @@
   display: flex;
   flex-direction: row;
   justify-content:center;
-  background-color: #fff;
+  background-color: rgb(255, 255, 255);
+  padding-bottom: 0.5em;
 }
 
 .MenuLink{
   border: 1px solid transparent;
+  font-size: 1.2rem;
   border-radius: 0.3em;
   padding: 0.3em;
   text-decoration: none;
   margin-left: 2em;
   margin-top: 0.3em;
-  color: #13d965;
+  color: #15d163;
 }
 
 .MenuLink:hover{
   border: 1px solid #fff;
   background-color: #91e6b4;
   color: #fff;
+}
+
+
+#root{
+  background-color: #448f63;
+  height: 100%;
+
+}
+
+html, body {
+  height: 100%;
 }

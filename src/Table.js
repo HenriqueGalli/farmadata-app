@@ -106,7 +106,7 @@ export default function Table({ columns, data, type }) {
     - react-table doesn't have UI, it's headless. We just need to put the react-table props from the Hooks, and it will do its magic automatically
   */
   return (
-    <div>
+    <div className="elementoListagem">
       <Modal show={showEstoque} onHide={handleCloseEstoque}>
         <Modal.Header>
           <Modal.Title>Titulo</Modal.Title>

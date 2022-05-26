@@ -12,8 +12,8 @@ function App() {
       <div className="App">
         <div className="Menu">
         <Link className="MenuLink" to="/">Home</Link>
-          <Link className="MenuLink"to="/cadastrarMedicamento">cadastrar</Link>
-          <Link className="MenuLink" to="/listarMedicamento">listarMedicamento</Link>
+          <Link className="MenuLink"to="/cadastrarMedicamento">Cadastrar</Link>
+          <Link className="MenuLink" to="/listarMedicamento">Listar Medicamento</Link>
           <Link className="MenuLink" to="/listarEstoque">Estoque</Link>
         </div>
 

@@ -1,10 +1,12 @@
 .ListarTabela{
   display: flex;
-  margin-top: 10%;  
+  margin-top: 2rem;  
   flex-direction: row;
   justify-content:center;
 }
-
+.elementoListagem{
+  background-color: #fff;
+}
 .headerTable{
   text-align: center;
 }
