@@ -141,19 +141,19 @@ export default function Table({ columns, data, type }) {
           <Form>
             <Form.Group className="mb-3">
               <Form.Label>Nome Comercial</Form.Label>
-              <Form.Control type="text" placeholder={nomeComercialMedicamento} disabled />
+              <Form.Control type="text" placeholder={nomeComercialMedicamento}  />
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>Nome Genérico</Form.Label>
-              <Form.Control type="text" placeholder={nomeGenericoMedicamento} disabled />
+              <Form.Control type="text" placeholder={nomeGenericoMedicamento}  />
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>Fabricante</Form.Label>
-              <Form.Control type="text" placeholder={fabricante} disabled />
+              <Form.Control type="text" placeholder={fabricante}  />
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>Bula</Form.Label>
-              <Form.Control type="text" placeholder={bula} disabled />
+              <Form.Control type="text" placeholder={bula}  />
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>Valor</Form.Label>

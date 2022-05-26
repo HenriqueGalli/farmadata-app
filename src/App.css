@@ -28,6 +28,9 @@
   background-color: #448f63;
   height: 100%;
 
+  background-image: url("img7.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
 
 html, body {
